@@ -2,7 +2,6 @@ package ec.edu.epn;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -145,5 +144,19 @@ class CalculatorTest {
         // Assert
         assertEquals(5.5, result, 0.0001, "The division result should be approximately 5.5");
         // Aqui el parametro de tolerancia es 0.0001
+    }
+
+    @Test
+    void divide_TwoPositiveNumbers_ReturnCorrectQuotient() {
+        // Arrange - Prepare
+        int a = 10;
+        int b = 2;
+        // Act
+        double result = calculator.divide(a, b);
+        // Assert
+        assertAll(
+                () -> assertEquals(5.0, result),
+                () -> assertTrue(result > 0)
+        );
     }
 }
